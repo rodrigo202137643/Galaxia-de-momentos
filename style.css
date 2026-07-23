@@ -1,0 +1,181 @@
+:root {
+  --letter-love: auto;
+  --letter: #110008;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #030005;
+  color: white;
+  font-family: 'Georgia', serif;
+  overflow: hidden;
+}
+
+/* --- PANTALLA DE INICIO --- */
+#intro-screen {
+  position: absolute;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #0d0006;
+  z-index: 100;
+  text-align: center;
+}
+
+#intro-screen h2 {
+  font-size: 2rem;
+  color: #ffccdf;
+  margin-bottom: 20px;
+  font-weight: normal;
+  line-height: 1.2;
+}
+
+.intro-image img {
+  width: 150px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+#intro-screen p {
+  margin: 15px 0 30px;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: #ff80b3;
+}
+
+#start-btn {
+  background-color: transparent;
+  color: #ff66a3;
+  border: 1px solid #ff66a3;
+  padding: 12px 24px;
+  border-radius: 5px;
+  font-size: 0.7rem;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+#start-btn:hover {
+  background-color: #ff66a3;
+  color: #000;
+}
+
+/* --- GALAXIA PRINCIPAL --- */
+#galaxy-canvas {
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 1;
+}
+
+.center-heart {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  filter: drop-shadow(0 0 30px #ff0066);
+}
+
+.orbit-item {
+  position: absolute;
+  top: 50%; left: 50%;
+  z-index: 10;
+  animation: orbit var(--speed) linear infinite;
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(var(--start-angle)) translateX(var(--radius)) rotate(calc(var(--start-angle) * -1));
+  }
+  to {
+    transform: rotate(calc(var(--start-angle) + 360deg)) translateX(var(--radius)) rotate(calc((var(--start-angle) + 360deg) * -1));
+  }
+}
+
+.text {
+  color: #ffb3d9;
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px #ff1a8c;
+}
+
+.icon {
+  width: 40px;
+  cursor: pointer;
+  filter: drop-shadow(0 0 15px #ff4da6);
+  border-radius: 50%;
+}
+
+/* --- MODALES / TARJETAS --- */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 200;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.active {
+  display: flex;
+}
+
+/* Clase exacta solicitada en el video */
+.Para_Ti {
+  position: relative;
+  width: 80%;
+  max-width: 300px;
+  font-family: "Georgia", serif; /* Reemplazo de "Te Amo" para legibilidad */
+  height: var(--letter-love);
+  background: var(--letter);
+  border: 1px solid #ff4da6;
+  border-radius: 15px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(255, 77, 166, 0.5);
+}
+
+.modal-images {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.Para_Ti h3 {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  font-weight: normal;
+}
+
+.Para_Ti p {
+  color: #ccc;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+.close-btn {
+  background: transparent;
+  color: #aaa;
+  border: 1px solid #555;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+}
+
+.close-btn:hover {
+  background: #333;
+  color: #fff;
+}
