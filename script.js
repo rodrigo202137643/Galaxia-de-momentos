@@ -4,19 +4,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const mainUniverse = document.getElementById("main-universe");
   const spotifyPlayer = document.getElementById("spotify-player");
 
-  // Transición y activación de audio
   startBtn.addEventListener("click", () => {
     introScreen.style.display = "none";
     mainUniverse.style.display = "block";
     
-    // Forzar reproducción del iframe si el navegador lo permite
     let iframeSrc = spotifyPlayer.src;
     spotifyPlayer.src = iframeSrc; 
 
     initGalaxy();
   });
 
-  // Control de las tarjetas
   const icons = document.querySelectorAll('.icon');
   const closeBtns = document.querySelectorAll('.close-btn');
 
@@ -33,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Generador visual de la Galaxia Rosa
   function initGalaxy() {
     const canvas = document.getElementById("galaxy-canvas");
     const ctx = canvas.getContext("2d");
@@ -56,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       update() {
         this.angle += this.speed;
-        this.distance -= 0.5; // Efecto de absorción hacia el centro
+        this.distance -= 0.5;
         
         if (this.distance < 10) {
           this.distance = Math.random() * (canvas.width / 1.5);
@@ -82,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function animate() {
-      ctx.fillStyle = 'rgba(3, 0, 5, 0.1)'; // Estela oscura para efecto de remolino
+      ctx.fillStyle = 'rgba(3, 0, 5, 0.1)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       for (let i = 0; i < particlesArray.length; i++) {
